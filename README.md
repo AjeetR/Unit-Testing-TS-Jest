@@ -8,10 +8,10 @@ The easiest way to get started is to clone the repository:
 
 ```
 # Get the latest snapshot
-git clone git@bitbucket.org:hydrantid/acm-config-manager.git
+git clone https://github.com/AjeetR/Unit-Testing-TS-Jest.git
 
 # Change directory
-cd acm-config-manager
+cd Unit-Testing-TS-Jest
 
 # Install NPM dependencies
 npm install
