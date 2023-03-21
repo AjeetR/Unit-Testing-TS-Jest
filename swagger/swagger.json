@@ -1,0 +1,250 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "IdenTrust API",
+    "description": "<b>IdenTrust Worker Management API </b>",
+    "version": "1.0.0"
+  },
+  "security": [
+    {
+      "OAuth2AuthorizationCodeBearer": []
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "OAuth2AuthorizationCodeBearer": {
+        "type": "oauth2",
+        "flows": {
+          "authorizationCode": {
+            "scopes": {},
+            "authorizationUrl": "",
+            "tokenUrl": "/token"
+          }
+        }
+      }
+    },
+    "schemas": {
+      "Account": {
+        "properties": {
+          "accountType": {
+            "type": "number"
+          },
+          "apiKey": {
+            "type": "string"
+          },
+          "apiPassword": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "accountType",
+          "apiKey"
+        ],
+        "additionalProperties": false,
+        "type": "object"
+      },
+      "AccountCreate": {
+        "properties": {
+          "accountType": {
+            "type": "number"
+          },
+          "apiKey": {
+            "type": "string"
+          },
+          "apiPassword": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "accountType",
+          "apiKey",
+          "apiPassword"
+        ],
+        "additionalProperties": false,
+        "type": "object"
+      },
+      "AccountRes": {
+        "properties": {
+          "account": {
+            "$ref": "#/components/schemas/Accounts"
+          },
+          "statusCode": {
+            "type": "number"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "statusCode"
+        ],
+        "additionalProperties": false,
+        "type": "object"
+      },
+      "Accounts": {
+        "additionalProperties": {
+          "$ref": "#/components/schemas/Account"
+        },
+        "type": "object"
+      }
+    }
+  },
+  "paths": {
+    "\\identrust/": {
+      "get": {
+        "tags": null,
+        "summary": null,
+        "responses": {
+          "200": {
+            "description": null,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountRes"
+                }
+              }
+            }
+          }
+        },
+        "security": [],
+        "parameters": []
+      }
+    },
+    "\\identrust/{accountId}": {
+      "post": {
+        "tags": null,
+        "summary": null,
+        "responses": {
+          "200": {
+            "description": null,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountRes"
+                }
+              }
+            }
+          }
+        },
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "description": null,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AccountCreate"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "accountId",
+            "in": "path",
+            "required": true,
+            "description": null,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "delete": {
+        "tags": null,
+        "summary": null,
+        "responses": {
+          "200": {
+            "description": null,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountRes"
+                }
+              }
+            }
+          }
+        },
+        "security": [],
+        "parameters": [
+          {
+            "name": "accountId",
+            "in": "path",
+            "required": true,
+            "description": null,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "get": {
+        "tags": null,
+        "summary": null,
+        "responses": {
+          "200": {
+            "description": null,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountRes"
+                }
+              }
+            }
+          }
+        },
+        "security": [],
+        "parameters": [
+          {
+            "name": "accountId",
+            "in": "path",
+            "required": true,
+            "description": null,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "put": {
+        "tags": null,
+        "summary": null,
+        "responses": {
+          "200": {
+            "description": null,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountRes"
+                }
+              }
+            }
+          }
+        },
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "description": null,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AccountCreate"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "accountId",
+            "in": "path",
+            "required": true,
+            "description": null,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

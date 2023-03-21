@@ -1,0 +1,10 @@
+_output: "swagger.json"
+_files:
+  - "./src/api/identrust/*.ts"
+  - "./src/*.ts"
+
+openapi: 3.0.3
+info:
+  title: IdenTrust API
+  description: <b>IdenTrust Worker Management API </b>
+  version: 1.0.0
